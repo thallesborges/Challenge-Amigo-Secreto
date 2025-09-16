@@ -11,8 +11,6 @@ function adicionarAmigo() {
         amigos.push(nome);
     }
 
-    console.log(amigos);
-
     listar_amigos();
     input_nome.value = '';
 }
@@ -27,13 +25,12 @@ function listar_amigos() {
 }
 
 function sortearAmigo() {
-    if (amigos.length > 2) {
+    if (amigos.length >= 2) {
         let i = Math.floor(Math.random() * amigos.length);
-        console.log(i)
-        console.log(amigos)
         
         listaAmigos.innerHTML = '';
         resultado.innerHTML = `<li> O amigo secreto sorteado é: ${amigos[i]} </li>`
+        amigos = [];
 
     } else {
         alert('Por favor, adicione ao menos 2 nomes.');
