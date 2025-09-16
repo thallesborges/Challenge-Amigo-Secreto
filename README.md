@@ -23,6 +23,9 @@ O projeto deste repositório é um desafio que visa a prática e o aperfeiçoame
 
 ## 🎬 Vídeo Explicativo
 
+
+https://github.com/user-attachments/assets/b0bce740-045b-4521-a9ef-fc8b69d5c0b7
+
 ---
 
 ## 🛠️ Como Usar
