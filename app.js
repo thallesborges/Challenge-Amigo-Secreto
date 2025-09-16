@@ -108,7 +108,7 @@ function sortearAmigo() {
         let i = Math.floor(Math.random() * amigos.length);
         
         listaAmigos.innerHTML = '';
-        resultado.innerHTML = `<li> O amigo secreto sorteado é: ${amigos[i]}></li>`
+        resultado.innerHTML = `<li> O amigo secreto sorteado é: ${amigos[i]}</li>`
         amigos = [];
 
     } else {
