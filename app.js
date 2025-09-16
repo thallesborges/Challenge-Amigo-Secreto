@@ -53,13 +53,54 @@ function adicionarAmigo() {
     input_nome.value = '';
 }
 
+function excluirAmigo(index) {
+    amigos.splice(index, 1);
+    listarAmigos();
+}
+
+function editarAmigo(index) {
+    const novoNome = prompt('Digite o novo nome:', amigos[index]);
+    if (novoNome && novoNome.trim() !== "") {
+        let nomeNormalizado = novoNome 
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, "");
+    }
+
+    let jaExiste = amigos.some((amigo, i) => 
+        i !== index &&
+        amigo
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") === nomeNormalizado
+    );
+
+    if (jaExiste) {
+        alert('Esse nome já existe na lista!');
+    } else {
+        amigos[index] = formatarNome(novoNome);
+    }
+    listarAmigos();
+}
+
 function listarAmigos() {
-    
     listaAmigos.innerHTML = '';
 
-    for (let nome of amigos) {
-        listaAmigos.innerHTML += `<li>${nome}</li>`;
-    }
+    amigos.forEach((nome, index) => {
+        listaAmigos.innerHTML += `
+            <li>
+                ${nome}
+                <span>
+                    <button class="btnEditar" onclick="editarAmigo(${index})" title="Editar">
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+                    <button class="btnExcluir" onclick="excluirAmigo(${index})" title="Excluir">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </span>
+                </li>
+        `;
+    });
 }
 
 function sortearAmigo() {
