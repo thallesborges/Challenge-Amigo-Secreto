@@ -65,20 +65,20 @@ function editarAmigo(index) {
             .toLowerCase()
             .normalize('NFD')
             .replace(/[\u0300-\u036f]/g, "");
-    }
 
-    let jaExiste = amigos.some((amigo, i) => 
-        i !== index &&
-        amigo
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "") === nomeNormalizado
-    );
+        let jaExiste = amigos.some((amigo, i) => 
+            i !== index &&
+            amigo
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "") === nomeNormalizado
+        );
 
-    if (jaExiste) {
-        alert('Esse nome já existe na lista!');
-    } else {
-        amigos[index] = formatarNome(novoNome);
+        if (jaExiste) {
+            alert('Esse nome já existe na lista!');
+        } else {
+            amigos[index] = formatarNome(novoNome);
+        }
     }
     listarAmigos();
 }
@@ -108,7 +108,7 @@ function sortearAmigo() {
         let i = Math.floor(Math.random() * amigos.length);
         
         listaAmigos.innerHTML = '';
-        resultado.innerHTML = `<li> O amigo secreto sorteado é: ${amigos[i]} </li>`
+        resultado.innerHTML = `<li> O amigo secreto sorteado é: ${amigos[i]}></li>`
         amigos = [];
 
     } else {
